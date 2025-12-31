@@ -1,152 +1,35 @@
 import React from "react";
 import CountUp from "react-countup";
+
+const stats = [
+  { num: 1, text: "Years of Experience" },
+  { num: 5, text: "Happy Clients" },
+  { num: 12, text: "Projects Completed" },
+  { num: 850, text: "Code Commits" },
+];
+
 function Stat() {
-  const number = [{ num: 0 }, { num: 0 }, { num: 5 }, { num: 8 }];
   return (
-    <>
-      <div className="main-container absolute w-full h-auto bottom-8 left-0 hidden md:flex justify-between">
-        <div className="flex items-center">
-          <div className="w-[50px] text-5xl sm:text-6xl md:text-7xl">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-6xl mx-auto">
+      {stats.map((item, index) => (
+        <div 
+          key={index} 
+          className="flex flex-col xl:flex-row items-center justify-center xl:justify-start gap-4"
+        >
+          <div className="text-4xl md:text-5xl lg:text-6xl font-bold font-primary text-primary dark:text-white">
             <CountUp
-              className="dark:text-white text-Primery"
-              end={number[0].num}
+              end={item.num}
               duration={5}
-              delay={2}
+              delay={0.5}
             />
+            <span className="text-accent">+</span>
           </div>
-          <div className="text-gray-400 flex flex-col justify-center items-start py-3">
-            <p>
-              Years of
-              <br />
-              experience
-            </p>
-          </div>
+          <p className="text-center xl:text-left text-gray-600 dark:text-gray-400 leading-snug max-w-[100px]">
+            {item.text}
+          </p>
         </div>
-        <div className="flex items-center">
-          <div className="w-[50px] text-5xl sm:text-6xl md:text-7xl">
-            <CountUp
-              className="dark:text-white text-Primery"
-              end={number[1].num}
-              duration={5}
-              delay={2}
-            />
-          </div>
-          <div className="text-gray-400 flex flex-col justify-center items-start py-3">
-            <p>
-              Happy
-              <br />
-              Client
-            </p>
-          </div>
-        </div>
-        <div className="flex items-center">
-          <div className="w-[50px] text-5xl sm:text-6xl md:text-7xl">
-            <CountUp
-              className="dark:text-white text-Primery"
-              end={number[2].num}
-              duration={5}
-              delay={1}
-            />
-          </div>
-          <div className="text-gray-400 flex flex-col justify-center items-start py-3">
-            <p>
-              Projects
-              <br />
-              Completed
-            </p>
-          </div>
-        </div>
-        <div className="flex items-center">
-          <div className="w-[50px] text-5xl sm:text-6xl md:text-7xl">
-            <CountUp
-              className="dark:text-white text-Primery"
-              end={number[3].num}
-              duration={5}
-              delay={1}
-            />
-          </div>
-          <div className="text-gray-400 flex flex-col justify-center items-start py-3">
-            <p>
-              Code
-              <br />
-              Commits
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="main-container w-full h-auto mt-8 md:hidden flex justify-start overflow-x-auto">
-        <div className="flex gap-6">
-          <div className="flex items-center">
-            <div className="w-[40px] text-4xl">
-              <CountUp
-                className="dark:text-white text-Primery"
-                end={number[0].num}
-                duration={5}
-                delay={2}
-              />
-            </div>
-            <div className="text-gray-400 flex flex-col justify-center items-start py-3">
-              <p>
-                Years of
-                <br />
-                experience
-              </p>
-            </div>
-          </div>
-          <div className="flex items-center">
-            <div className="w-[40px] text-4xl">
-              <CountUp
-                className="dark:text-white text-Primery"
-                end={number[1].num}
-                duration={5}
-                delay={2}
-              />
-            </div>
-            <div className="text-gray-400 flex flex-col justify-center items-start py-3">
-              <p>
-                Happy
-                <br />
-                Client
-              </p>
-            </div>
-          </div>
-          <div className="flex items-center">
-            <div className="w-[40px] text-4xl">
-              <CountUp
-                className="dark:text-white text-Primery"
-                end={number[2].num}
-                duration={5}
-                delay={1}
-              />
-            </div>
-            <div className="text-gray-400 flex flex-col justify-center items-start py-3">
-              <p>
-                Projects
-                <br />
-                Completed
-              </p>
-            </div>
-          </div>
-          <div className="flex items-center">
-            <div className="w-[40px] text-4xl">
-              <CountUp
-                className="dark:text-white text-Primery"
-                end={number[3].num}
-                duration={5}
-                delay={1}
-              />
-            </div>
-            <div className="text-gray-400 flex flex-col justify-center items-start py-3">
-              <p>
-                Code
-                <br />
-                Commits
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+      ))}
+    </div>
   );
 }
 

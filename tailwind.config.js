@@ -2,15 +2,26 @@ export default {
   content: ["./src/**/*.{jsx,js}"],
   darkMode: "class",
   theme: {
+    container: {
+      center: true,
+      padding: "15px",
+    },
     screens: {
-      sm: "300px",
-      md: "850px",
-      lg: "990px",
+      sm: "640px",
+      md: "768px",
+      lg: "960px",
       xl: "1200px",
+    },
+    fontFamily: {
+      primary: ["JetBrains Mono", "monospace"],
+      secondary: ["Inter", "sans-serif"], 
+      JetBrainsMono: ["JetBrains Mono", "monospace"], // Keep for legacy
     },
     extend: {
       colors: {
-        Primery: "#1c1c22",
+        primary: "#1c1c22", 
+        Primery: "#1c1c22", // Legacy support
+        secondary: "#13131ba",
         accent: {
           DEFAULT: "#00ff99",
           hover: "#00e187",
@@ -18,8 +29,9 @@ export default {
         servicesBg: "#131317e7",
         success: "#28a745",
       },
-      fontFamily: {
-        JetBrainsMono: ["JetBrains Mono", "sans-serif"],
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'hero-pattern': "url('/assets/hero-bg.png')", // Placeholder
       },
       keyframes: {
         "spin-slow": {
@@ -38,7 +50,7 @@ export default {
       animation: {
         "spin-slow": "spin-slow 3s linear infinite",
         "bounce-slow": "bounce-slow 2s infinite",
-        "fill-ani": "fill-ani 1s",
+        "fill-ani": "fill-ani 1s ease-in-out forwards",
       },
     },
   },

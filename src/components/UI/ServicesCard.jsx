@@ -1,25 +1,32 @@
-import HireBtn from "./MainBtn";
-function ServicesCard(props) {
-  const { icon, name, title } = props;
+import { BsArrowRight } from "react-icons/bs";
+
+function ServicesCard({ icon, name, title }) {
   return (
-    <div className="relative dark:bg-servicesBg bg-white overflow-hidden md:w-full h-auto md:h-auto text-center flex flex-row md:flex-col items-center justify-start md:justify-between border-[1px] border-solid border-accent py-4 px-2 rounded-xl">
-      <div className="sm:w-[300px] sm:h-full flex justify-center items-center sm:px-2">
-        <div className="w-[50px] h-[50px] md:w-[80px] md:h-[80px] border-2 border-solid border-accent-hover flex items-center justify-center">
-          <div className="text-3xl md:text-4xl text-accent hover:text-accent-hover">
-            {icon}
-          </div>
+    <div className="group relative bg-white dark:bg-[#232329] border border-gray-200 dark:border-gray-800 p-8 rounded-3xl overflow-hidden hover:border-accent transition-all duration-300 hover:shadow-2xl">
+      {/* Hover Background */}
+      <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+      <div className="relative z-10 flex flex-col items-start gap-4">
+        {/* Icon */}
+        <div className="w-16 h-16 rounded-2xl bg-gray-50 dark:bg-primary flex items-center justify-center text-4xl text-accent group-hover:text-white group-hover:bg-accent transition-all duration-300">
+          {icon}
         </div>
+
+        {/* Content */}
+        <div className="flex-1">
+          <h3 className="text-2xl font-bold text-primary dark:text-white mb-3 group-hover:text-accent transition-colors">
+            {name}
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+            {title}
+          </p>
+        </div>
+
+        {/* Arrow / Read More */}
+        <button className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-accent group-hover:text-primary dark:group-hover:text-white transition-colors">
+          Read More <BsArrowRight className="text-lg group-hover:translate-x-1 transition-transform" />
+        </button>
       </div>
-      <div>
-        <h3 className="text-accent font-semibold text-xl mt-2 md:mt-4">
-          {name}
-        </h3>
-        <p className="dark:text-gray-400 text-gray-700 text-start md:text-center">
-          {title}
-        </p>
-        <HireBtn name="Read More.." />
-      </div>
-      <div className="absolute w-full h-1 bottom-0 md:h-full md:w-1 md:top-0 bg-accent left-0"></div>
     </div>
   );
 }

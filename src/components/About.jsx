@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import mainLogo from "../../src/assets/vira-main-log.png";
+import React, { useState } from "react";
+import mainLogo from "../assets/vira-main-log.png";
 import {
   DiHtml5,
   DiCss3,
@@ -9,223 +9,207 @@ import {
 } from "react-icons/di";
 import { SiTailwindcss } from "react-icons/si";
 import SkillBar from "./UI/SkillBar";
-import Aos from "aos";
-import "aos/dist/aos.css";
 import Projects from "./UI/Project";
 import imgInstict from "../assets/instinct.jpg";
 import imgRupp from "../assets/slider1.jpg";
-import { IoSchoolSharp } from "react-icons/io5";
+import { IoSchoolSharp, IoPerson, IoCodeSlash, IoBriefcase } from "react-icons/io5";
+import { motion, AnimatePresence } from "framer-motion";
+
 const AboutPage = () => {
-  useEffect(() => {
-    Aos.init();
-  }, []);
+  const [activeTab, setActiveTab] = useState("about");
 
-  const [showboard, setShowboard] = useState(false);
-  const [modaldailog, setModaldailog] = useState("");
-
-  const handleButtonClick = (text) => {
-    setModaldailog(text);
-    setShowboard(true);
-  };
-
-  const closeBoard = () => {
-    setShowboard(false);
-  };
+  const tabs = [
+    { id: "about", label: "About Me", icon: <IoPerson /> },
+    { id: "education", label: "Education", icon: <IoSchoolSharp /> },
+    { id: "skills", label: "Skills", icon: <IoCodeSlash /> },
+    { id: "projects", label: "Projects", icon: <IoBriefcase /> },
+  ];
 
   return (
-    <section className="main-container min-h-screen dark:bg-Primery bg-white flex flex-col md:justify-between md:flex-row pb-10 py-20 md:pt-32 md:mb-10 lg:pt-32 lg:pb-10 xl:pb-10 xl:py-32 sm:overflow-hidden lg:overflow-hidden">
-      <div
-        data-aos="fade-right"
-        data-aos-duration="3000"
-        className="md:relative w-full md:w-[40%] dark:bg-gray-800 bg-gray-200 p-6 flex flex-col space-y-4 rounded-lg"
-      >
-        <h1 className="text-2xl font-bold text-accent">About Me</h1>
-        <div className="flex justify-center">
-          <img
-            src={mainLogo}
-            bg-gray-100
-            alt="Vira's Logo"
-            className="w-44 h-44 rounded-full object-cover border-2 mt-4 md:mt-8 border-accent"
-          />
-        </div>
-        <div className="md:absolute bottom-6 left-0 w-full h-[250px] flex flex-col justify-between items-center px-6">
-          <button
-            onClick={() => handleButtonClick("education")}
-            className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
-          >
-            Education
-          </button>
-          <button
-            onClick={() => handleButtonClick("skills")}
-            className="w-full bg-purple-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600 transition duration-300"
-          >
-            Skills
-          </button>
-          <button
-            onClick={() => handleButtonClick("about")}
-            className="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
-          >
-            About Me
-          </button>
-          <button
-            onClick={() => handleButtonClick("projects")}
-            className="w-full bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition duration-300"
-          >
-            Projects
-          </button>
-        </div>
-      </div>
-      <div
-        data-aos="fade-left"
-        data-aos-duration="3000"
-        className="w-full md:w-1/2 p-6"
-      >
-        <h2 className="text-3xl font-bold dark:text-white text-Primery mb-6">
-          Welcome to My Portfolio
-        </h2>
-        <p className="dark:text-gray-300 text-gray-700 mb-4 indent-4">
-          Hello and welcome! I'm{" "}
-          <span className="font-bold text-accent">Chamreun Vira</span>, a
-          passionate and creative web developer with a strong focus on building
-          modern, responsive, and user-friendly websites. Whether it's crafting
-          elegant user interfaces or solving complex technical challenges, I
-          thrive on turning ideas into reality.
-        </p>
-        <p className="dark:text-gray-300 text-gray-700 mb-4 indent-4">
-          On this page, you'll find everything you need to know about my
-          journey, skills, and projects. Feel free to explore the sections below
-          to learn more about my{" "}
-          <span className="font-bold text-blue-500">education</span>,{" "}
-          <span className="font-bold text-purple-500">technical skills</span>,
-          and{" "}
-          <span className="font-bold text-green-500">personal background</span>.
-        </p>
-        <p className="dark:text-gray-300 text-gray-700 indent-4">
-          If you're interested in collaborating or have any questions, don't
-          hesitate to reach out. Let's create something amazing together!
-        </p>
-      </div>
-      {showboard && (
-        <div className="main-container rounded-xl h-full ml-0 fixed inset-0 dark:bg-servicesBg bg-gray-600 bg-opacity-50 flex justify-end items-start pb-10 py-20 md:pt-32 md:mb-10 lg:pt-32 lg:pb-10 xl:pb-10 xl:py-32">
-          <div className="dark:bg-Primery bg-white rounded-xl h-full w-full md:w-[60%] p-6 overflow-y-auto">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-semibold text-accent">
-                {modaldailog === "education"
-                  ? "Education"
-                  : modaldailog === "skills"
-                  ? "Skills"
-                  : modaldailog === "about"
-                  ? "About Me"
-                  : "Projects"}
-              </h2>
-              <button
-                onClick={closeBoard}
-                className="dark:text-gray-300 text-Primery hover:text-servicesBg dark:hover:text-white text-3xl"
-              >
-                &times;
-              </button>
+    <section className="min-h-screen py-24 bg-white dark:bg-primary transition-colors duration-300">
+      <div className="container mx-auto px-4 lg:px-8">
+        <div className="flex flex-col lg:flex-row gap-12">
+          
+          {/* Sidebar / Navigation */}
+          <div className="w-full lg:w-1/3 flex flex-col space-y-6">
+            <div className="bg-gray-100 dark:bg-[#232329] p-8 rounded-2xl flex flex-col items-center text-center shadow-lg border border-gray-200 dark:border-gray-800">
+              <div className="w-40 h-40 rounded-full p-1 border-2 border-accent mb-6">
+                <img
+                  src={mainLogo}
+                  alt="Chamreun Vira"
+                  className="w-full h-full rounded-full object-cover"
+                />
+              </div>
+              <h2 className="text-2xl font-bold text-primary dark:text-white mb-2">Chamreun Vira</h2>
+              <p className="text-accent font-medium mb-6">Web Developer</p>
+              
+              <div className="w-full flex flex-col space-y-3">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`flex items-center gap-3 px-6 py-3 rounded-xl transition-all duration-300 font-medium ${
+                      activeTab === tab.id
+                        ? "bg-accent text-primary shadow-md transform scale-105"
+                        : "bg-white dark:bg-primary/50 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"
+                    }`}
+                  >
+                    <span className="text-xl">{tab.icon}</span>
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
             </div>
-            {modaldailog === "education" && (
-              <div>
-                <div>
-                  <h3 className="text-xl flex gap-2 text-blue-700">
-                    <IoSchoolSharp className="text-accent-hover text-2xl" />{" "}
-                    Instict Intisute
-                  </h3>
-                  <p className="dark:text-gray-300 text-gray-700 indent-4">
-                    My first school is instinct institute. I studied a short
-                    training course for three months. With Teacher Mr.{" "}
-                    <span className="font-semibold text-xl text-blue-500">
-                      LONG MADETH
-                    </span>
-                    . And Instinct Institute also taught me a lot about major
-                    font end developer. Thank you so much Teacher Madeth.{" "}
-                  </p>
-                  <img
-                    src={imgInstict}
-                    alt="instict"
-                    className="mt-2 rounded-xl w-full h-[250px] md:h-[430px] lg:h-[520px] object-top"
-                  />
-                </div>
-                <hr className="m-8 rounded-full dark:text-white text-black" />
-                <div>
-                  <h3 class="text-xl flex gap-2 text-red-700">
-                    <IoSchoolSharp className="text-accent-hover text-2xl" />{" "}
-                    RUPP University
-                  </h3>
-                  <p className="dark:text-gray-300 text-gray-700 indent-4">
-                    My seconde school is RUPP University of Phnum Phenh.Sorry no
-                    background because, I'm newbie at RUPP {":("}
-                  </p>
-                  <img
-                    src={imgRupp}
-                    alt="Rupp"
-                    className="mt-2 rounded-xl object-center h-[250px] md:h-[430px] lg:h-[520px]"
-                  />
-                </div>
-              </div>
-            )}
-            {modaldailog === "skills" && (
-              <div className="space-y-4">
-                <SkillBar
-                  skill="HTML"
-                  percentage={90}
-                  color="from-blue-400 to-blue-600"
-                  logo={<DiHtml5 className="text-2xl text-orange-500" />}
-                />
-                <SkillBar
-                  skill="CSS"
-                  percentage={70}
-                  color="from-purple-400 to-purple-600"
-                  logo={<DiCss3 className="text-2xl text-blue-500" />}
-                />
-                <SkillBar
-                  skill="JavaScript"
-                  percentage={50}
-                  color="from-green-400 to-green-600"
-                  logo={<DiJavascript className="text-2xl text-yellow-500" />}
-                />
-                <SkillBar
-                  skill="Tailwind CSS"
-                  percentage={50}
-                  color="from-pink-400 to-pink-600"
-                  logo={<SiTailwindcss className="text-2xl text-cyan-500" />}
-                />
-                <SkillBar
-                  skill="Bootstrap"
-                  percentage={60}
-                  color="from-indigo-400 to-indigo-600"
-                  logo={<DiBootstrap className="text-2xl text-purple-500" />}
-                />
-                <SkillBar
-                  skill="React JS"
-                  percentage={40}
-                  color="from-yellow-400 to-yellow-600"
-                  logo={<DiReact className="text-2xl text-blue-400" />}
-                />
-              </div>
-            )}
-            {modaldailog === "about" && (
-              <div className="space-y-2 dark:text-gray-300 text-gray-700 indent-4">
-                My name is{" "}
-                <span className="text-xl text-accent-hover">Chamreun Vira</span>{" "}
-                I am 18 years old. In my free time, I improve my skills and
-                watch YouTube to learn more code. I study at{" "}
-                <span className="font-semibold text-xl text-blue-700">
-                  Instinct Institute
-                </span>{" "}
-                And{" "}
-                <span className="text-red-600 font-semibold text-xl">
-                  RUPP University{" "}
-                </span>
-                of Phnom Penh and my major is Software Engineering. In the
-                future, I want to be a Web-Developer and Cyber-Security expert.
-              </div>
-            )}
-            {modaldailog === "projects" && <Projects />}
+          </div>
+
+          {/* Content Area */}
+          <div className="w-full lg:w-2/3">
+            <div className="bg-gray-50 dark:bg-[#232329] p-6 md:p-10 rounded-3xl min-h-[500px]">
+              
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeTab}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {/* About Content */}
+                  {activeTab === "about" && (
+                    <div className="space-y-6">
+                      <h2 className="text-4xl font-bold text-primary dark:text-white mb-6">
+                        Why hire me?
+                      </h2>
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                        Hello! I'm <span className="text-accent font-bold">Chamreun Vira</span>, a passionate 18-year-old web developer. 
+                        I specialize in building modern, responsive applications with a focus on seamless user experiences.
+                      </p>
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg pb-6 border-b border-gray-200 dark:border-gray-700">
+                        Currently pursuing Software Engineering at <span className="text-blue-600 font-semibold">RUPP</span> and refining my skills at <span className="text-accent font-semibold">Instinct Institute</span>. 
+                        My goal is to become a full-stack expert and contribute to the cyber-security landscape.
+                      </p>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                         <div className="bg-white dark:bg-[#1c1c22] p-4 rounded-xl border border-gray-200 dark:border-gray-800">
+                            <span className="block text-gray-500 dark:text-gray-400 text-sm mb-1">Phone</span>
+                            <span className="text-lg font-semibold text-primary dark:text-white">+855 97 30 56 747</span>
+                         </div>
+                         <div className="bg-white dark:bg-[#1c1c22] p-4 rounded-xl border border-gray-200 dark:border-gray-800">
+                            <span className="block text-gray-500 dark:text-gray-400 text-sm mb-1">Email</span>
+                            <span className="text-lg font-semibold text-primary dark:text-white">virachamreun@gmail.com</span>
+                         </div>
+                         <div className="bg-white dark:bg-[#1c1c22] p-4 rounded-xl border border-gray-200 dark:border-gray-800">
+                            <span className="block text-gray-500 dark:text-gray-400 text-sm mb-1">Experience</span>
+                            <span className="text-lg font-semibold text-primary dark:text-white">1+ Years</span>
+                         </div>
+                         <div className="bg-white dark:bg-[#1c1c22] p-4 rounded-xl border border-gray-200 dark:border-gray-800">
+                            <span className="block text-gray-500 dark:text-gray-400 text-sm mb-1">Nationality</span>
+                            <span className="text-lg font-semibold text-primary dark:text-white">Cambodian</span>
+                         </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Education Content */}
+                  {activeTab === "education" && (
+                    <div className="space-y-8">
+                      <h2 className="text-3xl font-bold text-primary dark:text-white mb-8">My Education</h2>
+                      
+                      <div className="relative border-l-2 border-accent ml-3 space-y-10 pl-8 pb-4">
+                        <div className="relative">
+                           <span className="absolute -left-[41px] top-0 p-2 rounded-full bg-accent text-primary">
+                              <IoSchoolSharp size={20}/>
+                           </span>
+                           <h3 className="text-2xl font-bold text-primary dark:text-white">Instinct Institute</h3>
+                           <span className="text-accent font-mono text-sm">2023 - Present</span>
+                           <p className="mt-2 text-gray-600 dark:text-gray-400">
+                             Studying frontend development and modern web technologies under the mentorship of Teacher Long Madeth.
+                           </p>
+                           <div className="mt-4 overflow-hidden rounded-xl h-48 md:h-64">
+                              <img src={imgInstict} alt="Instinct" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+                           </div>
+                        </div>
+
+                        <div className="relative">
+                           <span className="absolute -left-[41px] top-0 p-2 rounded-full bg-accent text-primary">
+                              <IoSchoolSharp size={20}/>
+                           </span>
+                           <h3 className="text-2xl font-bold text-primary dark:text-white">Royal University of Phnom Penh (RUPP)</h3>
+                           <span className="text-accent font-mono text-sm">2024 - Present</span>
+                           <p className="mt-2 text-gray-600 dark:text-gray-400">
+                             Pursuing a Bachelor's Degree in Software Engineering. Building strong foundations in computer science and programming.
+                           </p>
+                           <div className="mt-4 overflow-hidden rounded-xl h-48 md:h-64">
+                              <img src={imgRupp} alt="RUPP" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+                           </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Skills Content */}
+                  {activeTab === "skills" && (
+                    <div className="space-y-6">
+                      <h2 className="text-3xl font-bold text-primary dark:text-white mb-8">Technical Skills</h2>
+                      <p className="text-gray-600 dark:text-gray-400 mb-8">
+                         I work with a variety of modern web technologies to build robust and scalable applications.
+                      </p>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12">
+                        <SkillBar
+                          skill="HTML5"
+                          percentage={95}
+                          color="from-orange-400 to-orange-600"
+                          logo={<DiHtml5 className="text-3xl text-orange-500" />}
+                        />
+                        <SkillBar
+                          skill="CSS3"
+                          percentage={85}
+                          color="from-blue-400 to-blue-600"
+                          logo={<DiCss3 className="text-3xl text-blue-500" />}
+                        />
+                         <SkillBar
+                          skill="JavaScript"
+                          percentage={75}
+                          color="from-yellow-400 to-yellow-600"
+                          logo={<DiJavascript className="text-3xl text-yellow-500" />}
+                        />
+                        <SkillBar
+                          skill="React"
+                          percentage={70}
+                          color="from-cyan-400 to-cyan-600"
+                          logo={<DiReact className="text-3xl text-cyan-400" />}
+                        />
+                        <SkillBar
+                          skill="Tailwind"
+                          percentage={90}
+                          color="from-teal-400 to-teal-600"
+                          logo={<SiTailwindcss className="text-3xl text-teal-400" />}
+                        />
+                        <SkillBar
+                          skill="Bootstrap"
+                          percentage={60}
+                          color="from-purple-400 to-purple-600"
+                          logo={<DiBootstrap className="text-3xl text-purple-600" />}
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Projects Content */}
+                  {activeTab === "projects" && (
+                    <div className="space-y-6">
+                      <h2 className="text-3xl font-bold text-primary dark:text-white mb-6">Recent Projects</h2>
+                      <Projects />
+                    </div>
+                  )}
+                </motion.div>
+              </AnimatePresence>
+
+            </div>
           </div>
         </div>
-      )}
+      </div>
     </section>
   );
 };

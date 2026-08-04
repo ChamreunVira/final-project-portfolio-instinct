@@ -2,7 +2,7 @@ import React from "react";
 import HireBtn from "./UI/MainBtn";
 import Socail from "./UI/Socail";
 import Stat from "./Stat";
-import mainLogo from "../../src/assets/vira-main-log.png";
+import mainLogo from "../../src/assets/profile.png";
 import { motion } from "framer-motion";
 
 function Home() {
@@ -13,7 +13,6 @@ function Home() {
 
       <div className="container mx-auto px-4 lg:px-8 py-20 pb-12 pt-32 lg:pt-40">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
-          
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -21,15 +20,15 @@ function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex-1 text-center lg:text-left order-2 lg:order-1"
           >
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-xl md:text-2xl font-mono text-gray-600 dark:text-accent mb-4"
             >
-              Front End Developer
+              Full Stack Developer
             </motion.h2>
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
@@ -38,17 +37,22 @@ function Home() {
               Hello, I'm <br />
               <span className="text-accent animate-pulse">Chamreun Vira</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
               className="max-w-2xl mx-auto lg:mx-0 text-gray-500 dark:text-gray-400 text-lg mb-8 leading-relaxed font-secondary"
             >
-              Welcome to my portfolio! I craft beautiful, responsive, and user-friendly web experiences. 
-              Turning complex problems into elegant interfaces is what I do best.
+              Detail-oriented IT student and aspiring Web Developer with a solid
+              foundation in building full-stack web applications and designing
+              relational databases. Proficient in Javascript, React Js, Next Js,
+              Java, Spring Boot, and PostgreSQL, with practical experience
+              handling RESTful APIs and modern frontend tools. Eager to
+              contribute to a collaborative engineering team and write scalable,
+              maintainable code.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.6 }}
@@ -68,14 +72,14 @@ function Home() {
           >
             <div className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] xl:w-[500px] xl:h-[500px]">
               {/* Spinning Circle */}
-              <motion.div 
+              <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-0 rounded-full border-2 border-dotted border-accent/30"
               ></motion.div>
-              
+
               <div className="absolute inset-4 rounded-full border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#1a1a20] flex items-center justify-center overflow-hidden shadow-2xl group hover:border-accent transition-colors duration-500">
-                 <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <img
                   src={mainLogo}
                   alt="Chamreun Vira"

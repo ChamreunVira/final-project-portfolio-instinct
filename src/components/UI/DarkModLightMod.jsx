@@ -31,7 +31,7 @@ function DarkModLightMod() {
       onClick={() => setDark(!dark)}
       className="dark:text-yellow-400 text-Primery p-4 text-xl md:text-1xl lg:text-3xl cursor-pointer"
     >
-      {dark ? <BsSunFill /> : <FaMoon />}
+      {dark ? <BsSunFill size={18}/> : <FaMoon size={18}/>}
     </div>
   );
 }

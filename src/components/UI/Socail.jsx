@@ -8,7 +8,7 @@ import {
 
 function Socail() {
   return (
-    <div className="flex justify-between items-center gap-6 md:mt-5 mt-3 *:cursor-pointer">
+    <div className="max-w-fit flex justify-between items-center gap-6 md:mt-5 mt-3 *:cursor-pointer">
       <div className="relative group">
         <a href="https://web.facebook.com/vira.chorouen">
           <FaFacebookF className="text-accent text-4xl border-2 py-2 px-2 border-accent border-solid rounded-[50%] hover:text-accent-hover hover:scale-[1.1] transition-transform" />

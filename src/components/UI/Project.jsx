@@ -1,17 +1,25 @@
 import React, { useState } from "react";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
-import imgProject1 from "../../../src/assets/project1.png";
+import khmerSocial from "../../../src/assets/khmer-social.png";
 import imgProject2 from "../../../src/assets/project2.png";
 import imgProject3 from "../../../src/assets/project3.png";
-import imgProject4 from "../../../src/assets/project4.png";
+import bacii from "../../../src/assets/bacii.png";
+import ecommercePreview from "../../assets/ecommerce_preview.png";
+import { image } from "framer-motion/client";
 
 const projects = [
   {
-    title: "Portfolio Website",
-    category: "Frontend",
-    image: imgProject1,
-    link: "https://ch-vira.vercel.app/",
+    title: "Ecommerce Website",
+    category: "Full Stack",
+    image: ecommercePreview,
+    github: "https://github.com/ChamreunVira/ecommerce-web"
+  },
+  {
+    title: "Khmer Social",
+    category: "Full Stack",
+    image: khmerSocial,
+    link: "https://khmer-social.vercel.app/",
     github: "#",
   },
   {
@@ -29,10 +37,10 @@ const projects = [
     github: "#",
   },
   {
-    title: "Calculator App",
+    title: "Track Score BacII",
     category: "Utility",
-    image: imgProject4,
-    link: "https://caculatorbyvira.vercel.app/",
+    image: bacii,
+    link: "https:/www.bacii.online/",
     github: "#",
   },
 ];

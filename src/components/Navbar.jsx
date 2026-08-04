@@ -55,7 +55,7 @@ function Navbar() {
                 <NavbarLink onClick={() => setOpen(false)} />
              </ul>
              
-             <div className="mt-auto flex justify-center gap-6 pb-8">
+             <div className="mt-auto flex justify-center gap-4 pb-8">
                <DarkModLightMod />
                <a href="https://github.com/Vyrabot">
                  <RiGithubFill className="dark:text-white text-black text-4xl" />

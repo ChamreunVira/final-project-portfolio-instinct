@@ -1,13 +1,12 @@
-import React from "react";
-import HireBtn from "./UI/MainBtn";
-import Socail from "./UI/Socail";
+import HireBtn from "./ui/MainBtn";
+import Socail from "./ui/Socail";
 import Stat from "./Stat";
 import mainLogo from "../../src/assets/profile.png";
 import { motion } from "framer-motion";
 
 function Home() {
   return (
-    <section className="bg-white dark:bg-primary min-h-screen relative overflow-hidden flex flex-col justify-center">
+    <section id="home" className="bg-white dark:bg-primary min-h-screen relative overflow-hidden flex flex-col justify-center scroll-mt-20">
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-accent/5 rounded-full blur-[100px] pointer-events-none"></div>
 
@@ -34,7 +33,7 @@ function Home() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold font-primary leading-tight text-primary dark:text-white mb-6"
             >
-              Hello, I'm <br />
+              Hello, I&apos;m <br />
               <span className="text-accent animate-pulse">Chamreun Vira</span>
             </motion.h1>
             <motion.p

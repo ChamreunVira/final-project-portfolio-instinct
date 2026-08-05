@@ -1,43 +1,28 @@
-import React from "react";
-import { Link, useResolvedPath } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-function NavbarLink() {
-  const links = [
-    {
-      name: "Home",
-      path: "/",
-    },
-    {
-      name: "About",
-      path: "/about",
-    },
-    {
-      name: "Services",
-      path: "/services",
-    },
-    {
-      name: "Contact",
-      path: "/contact",
-    },
-  ];
+export const navigationItems = [
+  { name: "Home", id: "home" },
+  { name: "About", id: "about" },
+  { name: "Skills", id: "skills" },
+  { name: "Projects", id: "projects" },
+  { name: "Services", id: "services" },
+  { name: "Blog", id: "blog" },
+  { name: "Contact", id: "contact" },
+];
 
-  const { pathname } = useResolvedPath();
+function NavbarLink({ onNavigate, className = "" }) {
+  const { pathname } = useLocation();
 
   return (
     <>
-      {links.map((item, index) => (
-        <div key={index} className="py-7 px-3 dark:text-accent text-Primery">
-          <Link
-            to={item.path}
-            className={`${
-              item.path === pathname
-                ? "dark:text-accent text-accent border-b-2 border-accent"
-                : ""
-            } hover:text-accent-hover text-xl`}
-          >
-            {item.name}
-          </Link>
-        </div>
+      {navigationItems.map((item) => (
+        <li key={item.id} className={className}>
+          {pathname === "/" ? (
+            <a onClick={onNavigate} href={`#${item.id}`} className="text-sm font-medium text-gray-600 transition hover:text-accent dark:text-gray-300">{item.name}</a>
+          ) : (
+            <Link onClick={onNavigate} to={`/#${item.id}`} className="text-sm font-medium text-gray-600 transition hover:text-accent dark:text-gray-300">{item.name}</Link>
+          )}
+        </li>
       ))}
     </>
   );

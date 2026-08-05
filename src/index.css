@@ -36,4 +36,8 @@
   ::selection {
     @apply bg-accent text-primary;
   }
+
+  .contact-field {
+    @apply w-full rounded-xl border border-gray-200 bg-white px-6 py-4 text-primary outline-none transition-colors placeholder:text-gray-400 focus:border-accent dark:border-gray-800 dark:bg-primary dark:text-white;
+  }
 }

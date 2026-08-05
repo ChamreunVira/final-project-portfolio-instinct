@@ -1,5 +1,4 @@
-import React from "react";
-import ServicesCard from "./UI/ServicesCard";
+import ServicesCard from "./ui/ServicesCard";
 import { MdWeb } from "react-icons/md";
 import { TbWorld } from "react-icons/tb";
 import { DiGitMerge } from "react-icons/di";
@@ -58,7 +57,7 @@ function Services() {
   };
 
   return (
-    <section className="bg-white dark:bg-primary min-h-screen py-24 pb-12">
+    <section id="services" className="scroll-mt-20 bg-white py-24 pb-12 dark:bg-primary">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

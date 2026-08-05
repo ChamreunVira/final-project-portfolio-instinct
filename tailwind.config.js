@@ -15,7 +15,7 @@ export default {
     fontFamily: {
       primary: ["JetBrains Mono", "monospace"],
       secondary: ["Inter", "sans-serif"], 
-      JetBrainsMono: ["JetBrains Mono", "monospace"], // Keep for legacy
+      JetBrainsMono: ["JetBrains Mono", "monospace"],
     },
     extend: {
       colors: {

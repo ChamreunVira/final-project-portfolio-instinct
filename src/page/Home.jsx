@@ -71,7 +71,7 @@ function Home() {
                 </button>
               </a>
             </motion.div>
-            <Socail />
+            {/* <Socail /> */}
           </motion.div>
 
           {/* Image/Visual content */}

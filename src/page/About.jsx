@@ -133,7 +133,7 @@ const skills = [
     items: [
       {
         skill: "Docker",
-        percentage: 20,
+        percentage: 50,
         color: "from-blue-400 to-blue-600",
         icon: <FaDocker className="text-3xl text-blue-500" />,
       },
@@ -156,13 +156,13 @@ const skills = [
     items: [
       {
         skill: "Jetpack Compose",
-        percentage: 70,
+        percentage: 20,
         color: "from-purple-400 to-purple-700",
         icon: <SiJetpackcompose className="text-3xl text-purple-500" />,
       },
       {
         skill: "ESP32 / IoT",
-        percentage: 80,
+        percentage: 50,
         color: "from-gray-400 to-gray-700",
         icon: <FaMicrochip className="text-3xl text-gray-500" />,
       },

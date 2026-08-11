@@ -1,4 +1,4 @@
-import ServicesCard from "./ui/ServicesCard";
+import ServicesCard from "../components/ui/ServicesCard";
 import { MdWeb } from "react-icons/md";
 import { TbWorld } from "react-icons/tb";
 import { DiGitMerge } from "react-icons/di";
@@ -6,38 +6,45 @@ import { AiFillHdd } from "react-icons/ai";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
 import { FaApple } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { BsAndroid } from "react-icons/bs";
 
 function Services() {
   const dataCard = [
     {
-      icon: <MdWeb />,
-      name: "Web Design",
-      title: "Creating visually stunning and user-friendly designs that capture your brand's essence.",
-    },
-    {
       icon: <TbWorld />,
-      name: "Web Development",
-      title: "Building robust, scalable, and high-performance websites using modern technologies.",
+      name: "Full-Stack Development",
+      title:
+        "Building modern web applications with React, Next.js, Spring Boot, and scalable backend architectures.",
     },
     {
-      icon: <FaMoneyBillTrendUp />,
-      name: "Digital Marketing",
-      title: "Boosting your online presence through targeted strategies and data-driven campaigns.",
+      icon: <MdWeb />,
+      name: "Frontend Development",
+      title:
+        "Creating responsive and user-friendly interfaces with modern UI frameworks and best practices.",
     },
     {
       icon: <AiFillHdd />,
-      name: "Web Hosting",
-      title: "Reliable and secure hosting solutions to keep your website always accessible.",
-    },
-    {
-      icon: <FaApple />,
-      name: "App Development",
-      title: "Developing native and cross-platform mobile applications for iOS and Android.",
+      name: "Backend Development",
+      title:
+        "Designing secure REST APIs, database systems, authentication, and business logic using Spring Boot.",
     },
     {
       icon: <DiGitMerge />,
-      name: "IoT Solutions",
-      title: "Connecting devices and systems to create smart, automated environments.",
+      name: "DevOps & Cloud",
+      title:
+        "Deploying applications with Docker, CI/CD pipelines, cloud platforms, and server management.",
+    },
+    {
+      icon: <BsAndroid />,
+      name: "Mobile Development",
+      title:
+        "Developing Android applications using Kotlin and Jetpack Compose with modern architecture.",
+    },
+    {
+      icon: <TbWorld />,
+      name: "IoT & AI Solutions",
+      title:
+        "Building smart systems with IoT devices, computer vision, and AI technologies.",
     },
   ];
 
@@ -57,9 +64,12 @@ function Services() {
   };
 
   return (
-    <section id="services" className="scroll-mt-20 bg-white py-24 pb-12 dark:bg-primary">
+    <section
+      id="services"
+      className="scroll-mt-20 bg-white py-24 pb-12 dark:bg-primary"
+    >
       <div className="container mx-auto px-4 lg:px-8">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -70,11 +80,12 @@ function Services() {
             What I Do<span className="text-accent">.</span>
           </h1>
           <p className="text-gray-600 dark:text-gray-400 text-lg">
-            I offer a full range of digital services to help businesses grow and succeed in the modern world.
+            I offer a full range of digital services to help businesses grow and
+            succeed in the modern world.
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
@@ -82,9 +93,9 @@ function Services() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {dataCard.map((card, index) => (
-             <motion.div variants={item} key={index}>
-                <ServicesCard {...card} />
-             </motion.div>
+            <motion.div variants={item} key={index}>
+              <ServicesCard {...card} />
+            </motion.div>
           ))}
         </motion.div>
       </div>

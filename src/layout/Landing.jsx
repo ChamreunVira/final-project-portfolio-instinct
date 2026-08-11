@@ -1,8 +1,8 @@
-import Home from "./Home";
-import About from "./About";
-import Services from "./Services";
-import Contact from "./Contact";
-import Blog from "./Blog";
+import Home from "../page/Home";
+import About from "../page/About";
+import Services from "../page/Services";
+import Contact from "../page/Contact";
+import Blog from "../page/Blog";
 
 function Landing() {
   return (

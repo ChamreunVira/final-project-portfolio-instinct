@@ -1,12 +1,15 @@
-import HireBtn from "./ui/MainBtn";
-import Socail from "./ui/Socail";
-import Stat from "./Stat";
+import Socail from "../components/ui/Socail";
+import Stat from "../components/Stats";
 import mainLogo from "../../src/assets/profile.png";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <section id="home" className="bg-white dark:bg-primary min-h-screen relative overflow-hidden flex flex-col justify-center scroll-mt-20">
+    <section
+      id="home"
+      className="bg-white dark:bg-primary min-h-screen relative overflow-hidden flex flex-col justify-center scroll-mt-20"
+    >
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-accent/5 rounded-full blur-[100px] pointer-events-none"></div>
 
@@ -42,13 +45,11 @@ function Home() {
               transition={{ delay: 0.6, duration: 0.6 }}
               className="max-w-2xl mx-auto lg:mx-0 text-gray-500 dark:text-gray-400 text-lg mb-8 leading-relaxed font-secondary"
             >
-              Detail-oriented IT student and aspiring Web Developer with a solid
-              foundation in building full-stack web applications and designing
-              relational databases. Proficient in Javascript, React Js, Next Js,
-              Java, Spring Boot, and PostgreSQL, with practical experience
-              handling RESTful APIs and modern frontend tools. Eager to
-              contribute to a collaborative engineering team and write scalable,
-              maintainable code.
+              I am a Computer Science student and Full-Stack Developer
+              passionate about building scalable web applications. I specialize
+              in React, Next.js, Spring Boot, and database design, with
+              experience creating REST APIs, responsive interfaces, and
+              real-world software solutions.
             </motion.p>
 
             <motion.div
@@ -57,9 +58,16 @@ function Home() {
               transition={{ delay: 0.8, duration: 0.6 }}
               className="flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start"
             >
-              <HireBtn name="Hire Me" />
-              <Socail />
+              <button className="px-3 py-2 font-semibold bg-accent text-white rounded-lg hover:bg-accent/80 transition-colors duration-300">
+                Downlaod CV
+              </button>
+              <a href="/#projects">
+                <button className="px-3 py-2 font-semibold bg-dark border border-accent text-white rounded-lg hover:bg-accent/80 transition-colors duration-300">
+                  View Projects
+                </button>
+              </a>
             </motion.div>
+            <Socail />
           </motion.div>
 
           {/* Image/Visual content */}

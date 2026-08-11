@@ -58,9 +58,13 @@ function Home() {
               transition={{ delay: 0.8, duration: 0.6 }}
               className="flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start"
             >
-              <button className="px-3 py-2 font-semibold bg-accent text-white rounded-lg hover:bg-accent/80 transition-colors duration-300">
-                Downlaod CV
-              </button>
+              <a
+                href="/cv.pdf"
+                download="Chamreun_Vira_CV.pdf"
+                className="inline-block px-3 py-2 font-semibold bg-accent text-white rounded-lg hover:bg-accent/80 transition-colors duration-300"
+              >
+                Download CV
+              </a>
               <a href="/#projects">
                 <button className="px-3 py-2 font-semibold bg-dark border border-accent text-white rounded-lg hover:bg-accent/80 transition-colors duration-300">
                   View Projects
